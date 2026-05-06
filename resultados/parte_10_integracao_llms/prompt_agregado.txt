@@ -1,0 +1,60 @@
+Contexto:
+Estamos avaliando modelos de triagem para uma base desbalanceada do SISCAN.
+A classe positiva e rara, portanto accuracy isolada nao deve ser usada como criterio principal.
+
+Metricas e resultados estruturados:
+{
+  "objetivo_aplicacao": "apoio a triagem e priorizacao em mamografias do SISCAN",
+  "classe_positiva": "maior probabilidade estatistica de cancer de mama provavel",
+  "observacoes": [
+    "A base e desbalanceada; accuracy isolada nao deve orientar a escolha do modelo.",
+    "Recall maior reduz falsos negativos, mas pode aumentar carga operacional por falsos positivos.",
+    "Os valores otimizados por AG devem ser atualizados quando as partes 7, 8 e 9 forem reexecutadas."
+  ],
+  "metricas_modelos": [
+    {
+      "modelo": "SVM baseline Parte 4",
+      "tipo": "baseline",
+      "accuracy": 0.6811,
+      "balanced_accuracy": 0.6066,
+      "precision": 0.0693,
+      "recall": 0.5251,
+      "f1": 0.1225,
+      "roc_auc": 0.6492
+    },
+    {
+      "modelo": "Regressao Logistica baseline Parte 6",
+      "tipo": "baseline",
+      "accuracy": 0.6784,
+      "balanced_accuracy": 0.5924,
+      "precision": 0.0657,
+      "recall": 0.4985,
+      "f1": 0.1161,
+      "roc_auc": 0.6348
+    },
+    {
+      "modelo": "Random Forest baseline Parte 5",
+      "tipo": "baseline",
+      "accuracy": 0.7971,
+      "balanced_accuracy": 0.5924,
+      "precision": 0.0815,
+      "recall": 0.3687,
+      "f1": 0.1335,
+      "roc_auc": 0.6248
+    }
+  ]
+}
+
+Tarefa:
+1. Resuma o desempenho para um publico medico e gestor.
+2. Explique o trade-off entre recall e precision.
+3. Indique impacto operacional de falsos positivos e falsos negativos.
+4. Compare baseline e modelos otimizados quando os dados estiverem disponiveis.
+5. Gere recomendacoes acionaveis para validacao futura.
+
+Responda exatamente com estas secoes:
+- Resumo executivo
+- Leitura das metricas
+- Impacto clinico-operacional
+- Comparacao entre modelos
+- Recomendacoes para validacao

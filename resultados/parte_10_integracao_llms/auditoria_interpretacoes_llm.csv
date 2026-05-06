@@ -1,0 +1,3 @@
+tipo_interpretacao,llm_client,modelo_llm,aprovado_validacao_automatica,secoes_ausentes,termos_proibidos,arquivo_resposta
+individual,DemoLLMClient,demo-local,True,[],[],resposta_individual.md
+agregada,DemoLLMClient,demo-local,True,[],[],resposta_agregada.md

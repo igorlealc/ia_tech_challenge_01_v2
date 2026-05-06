@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conclusão do Trabalho - SISCAN Mamografia RJ 2025</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5b6577;
+      --line: #d9e0ea;
+      --accent: #0f766e;
+      --accent-2: #b45309;
+      --accent-3: #1d4ed8;
+      --soft: #e7f5f2;
+      --warn: #fff7ed;
+      --blue: #eaf1ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header,
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    header {
+      padding: 32px;
+    }
+
+    section {
+      margin-top: 24px;
+      padding: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: 1.55rem;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      max-width: 920px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 150px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+
+    .metric {
+      display: block;
+      margin-top: 8px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #115e59;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      background: var(--panel);
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #eef3f8;
+      color: #263246;
+      font-size: 0.88rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .positive {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .negative {
+      color: #b91c1c;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .callout {
+      padding: 18px;
+      border-left: 5px solid var(--accent-3);
+      background: var(--blue);
+      border-radius: 8px;
+    }
+
+    .warning {
+      border-left-color: var(--accent-2);
+      background: var(--warn);
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      main {
+        width: min(100% - 20px, 1120px);
+        padding-top: 20px;
+      }
+
+      header,
+      section {
+        padding: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Trabalho Fase 2 - FIAP IA para Devs</p>
+      <h1>Conclusão do trabalho de classificação, otimização e integração com LLMs</h1>
+      <p class="lead">
+        O projeto utilizou dados de mamografia do DATASUS/SISCAN referentes a residentes do Estado do Rio de Janeiro em 2025.
+        A base foi preparada para classificação supervisionada, os modelos baseline foram comparados com versões otimizadas
+        por Algoritmos Genéticos e, ao final, uma LLM foi integrada como camada de interpretação dos resultados estatísticos.
+      </p>
+      <div class="pill-row" aria-label="Tópicos do trabalho">
+        <span class="pill">SISCAN Mamografia</span>
+        <span class="pill">Base desbalanceada</span>
+        <span class="pill">SVM</span>
+        <span class="pill">Regressão Logística</span>
+        <span class="pill">Random Forest</span>
+        <span class="pill">Algoritmo Genético</span>
+        <span class="pill">LLMs</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Identificação do Trabalho</h2>
+      <div class="callout" style="margin-bottom: 10px;">
+        <p>
+          Serão entregues uma versão em HTML e uma versão em PDF com o mesmo conteúdo. Recomenda-se, entretanto,
+          que a avaliação do trabalho seja realizada preferencialmente pela versão em HTML, pois ela oferece melhor
+          experiência de leitura, navegação e visualização das tabelas.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Autor</th>
+              <th>RM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Igor Hadson Leal Carletti</td>
+              <td>RM371634</td>
+            </tr>
+            <tr>
+              <td>Paulo Eduardo Oliveira Moreira</td>
+              <td>RM373862</td>
+            </tr>
+            <tr>
+              <td>Gustavo de Souza Lima</td>
+              <td>RM370884</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top: 12px;">
+        <strong>Vídeo no YouTube:</strong>
+        <a href="https://youtu.be/jxiiMiTQDt8" target="_blank" rel="noopener noreferrer">https://youtu.be/jxiiMiTQDt8</a>
+      </p>
+      <p style="margin-top: 12px;">
+        <strong>Repositório:</strong>
+        <a href="https://github.com/igorlealc/ia_tech_challenge_01_v2" target="_blank" rel="noopener noreferrer">https://github.com/igorlealc/ia_tech_challenge_01_v2</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Resumo Executivo</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Base analisada</h3>
+          <p class="muted">A base tratada preservou todos os registros do recorte original.</p>
+          <span class="metric">267.473</span>
+          <p class="muted">linhas após o tratamento</p>
+        </article>
+        <article class="card">
+          <h3>Classe positiva</h3>
+          <p class="muted">O problema é fortemente desbalanceado, o que torna inadequada a avaliação baseada apenas em accuracy.</p>
+          <span class="metric">4,24%</span>
+          <p class="muted">aproximadamente na variável-alvo</p>
+        </article>
+        <article class="card">
+          <h3>Leitura operacional</h3>
+          <p class="muted">As métricas principais são recall, F1, precision e balanced accuracy.</p>
+          <span class="metric">Recall</span>
+          <p class="muted">prioritário para reduzir falsos negativos</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Resultados dos Modelos Otimizados</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Modelo com AG</th>
+              <th>Melhor configuração</th>
+              <th>Accuracy</th>
+              <th>Balanced Accuracy</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>Especificidade</th>
+              <th>F1</th>
+              <th>ROC AUC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SVM Linear</td>
+              <td>C=0.01, class_weight=balanced, normalizer, max_iter=5000</td>
+              <td>0,4480</td>
+              <td>0,5638</td>
+              <td>0,0515</td>
+              <td class="positive">0,6903</td>
+              <td>0,4373</td>
+              <td>0,0958</td>
+              <td>0,5638</td>
+            </tr>
+            <tr>
+              <td>Regressão Logística</td>
+              <td>C=0.01, class_weight=balanced, normalizer, max_iter=2000</td>
+              <td>0,4441</td>
+              <td>0,5646</td>
+              <td>0,0515</td>
+              <td class="positive">0,6962</td>
+              <td>0,4330</td>
+              <td>0,0960</td>
+              <td>0,6163</td>
+            </tr>
+            <tr>
+              <td>Random Forest</td>
+              <td>n_estimators=100, max_depth=8, min_samples_leaf=10, class_weight=balanced</td>
+              <td>0,7609</td>
+              <td class="positive">0,6003</td>
+              <td class="positive">0,0773</td>
+              <td>0,4248</td>
+              <td class="positive">0,7758</td>
+              <td class="positive">0,1308</td>
+              <td class="positive">0,6289</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Os valores foram extraídos das avaliações finais dos notebooks de tuning com Algoritmos Genéticos nas Partes 7, 8 e 9.
+        A especificidade foi derivada da relação entre balanced accuracy e recall: especificidade = 2 * balanced accuracy - recall.
+      </p>
+    </section>
+
+    <section>
+      <h2>Sensibilidade e Especificidade</h2>
+      <div class="callout">
+        <p>
+          Em saúde da mulher, especialmente em triagem para câncer de mama provável, a sensibilidade é prioritária porque
+          está associada à redução de falsos negativos. Entretanto, a especificidade também é relevante, pois baixa
+          especificidade aumenta falsos positivos, exames complementares, ansiedade e sobrecarga operacional.
+        </p>
+      </div>
+      <p style="margin-top: 18px;">
+        SVM e Regressão Logística apresentaram os maiores valores de recall, mas essa decisão reduziu a especificidade
+        para aproximadamente 0,4373 e 0,4330, respectivamente. Isso indica que esses modelos tendem a capturar mais casos
+        positivos, porém também classificam mais casos negativos como positivos.
+      </p>
+      <p style="margin-top: 12px;">
+        A Random Forest otimizada apresentou menor recall em comparação com SVM e Regressão Logística, mas preservou
+        especificidade superior, aproximadamente 0,7758. Por esse motivo, ela representa o melhor compromisso entre
+        sensibilidade clínica e viabilidade operacional.
+      </p>
+    </section>
+
+    <section>
+      <h2>Comparação com os Baselines</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>Delta Accuracy</th>
+              <th>Delta Balanced Accuracy</th>
+              <th>Delta Precision</th>
+              <th>Delta Recall</th>
+              <th>Delta Especificidade</th>
+              <th>Delta F1</th>
+              <th>Interpretação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SVM Linear</td>
+              <td class="negative">-0,2331</td>
+              <td class="negative">-0,0428</td>
+              <td class="negative">-0,0178</td>
+              <td class="positive">+0,1652</td>
+              <td class="negative">-0,2508</td>
+              <td class="negative">-0,0267</td>
+              <td>Apresentou ganho de sensibilidade, com perda de precisão e de equilíbrio geral.</td>
+            </tr>
+            <tr>
+              <td>Regressão Logística</td>
+              <td class="negative">-0,2343</td>
+              <td class="negative">-0,0278</td>
+              <td class="negative">-0,0142</td>
+              <td class="positive">+0,1977</td>
+              <td class="negative">-0,2533</td>
+              <td class="negative">-0,0201</td>
+              <td>Apresentou o maior recall do estudo, porém com custo operacional elevado em falsos positivos.</td>
+            </tr>
+            <tr>
+              <td>Random Forest</td>
+              <td class="negative">-0,0362</td>
+              <td class="positive">+0,0079</td>
+              <td class="negative">-0,0042</td>
+              <td class="positive">+0,0561</td>
+              <td class="negative">-0,0403</td>
+              <td class="negative">-0,0027</td>
+              <td>Apresentou o melhor equilíbrio entre ganho de recall e preservação das demais métricas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Integração com LLMs</h2>
+      <div class="callout">
+        <p>
+          A Parte 10 integrou uma LLM ao fluxo do projeto para transformar métricas agregadas e exemplos individuais
+          em explicações textuais claras, cautelosas e auditáveis. A integração foi estruturada por meio de prompts de
+          segurança, payloads sem identificação pessoal, validação automática das respostas e registro dos artefatos gerados.
+        </p>
+      </div>
+
+      <p style="margin-top: 18px;">
+        A LLM não foi utilizada como classificador e não substituiu os modelos estatísticos. Sua função foi interpretar
+        os resultados produzidos pelos modelos, comunicar incertezas, evitar linguagem diagnóstica e reforçar que qualquer
+        aplicação em saúde exige validação adicional e avaliação profissional.
+      </p>
+
+      <p style="margin-top: 12px;">
+        Os artefatos da integração foram registrados em <strong>resultados/parte_10_integracao_llms/</strong>, incluindo
+        prompts individuais e agregados, respostas geradas, validações em JSON, auditoria das interpretações e tabela de
+        métricas encaminhada à LLM. Esse registro torna a etapa reprodutível e permite revisar o comportamento da camada
+        interpretativa.
+      </p>
+      <p style="margin-top: 12px;">
+        A abordagem adotada foi sensível ao gênero por reconhecer que o contexto clínico envolve saúde da mulher e exige
+        comunicação cuidadosa, sem culpabilização, estigmatização ou inferências indevidas sobre pacientes. Os prompts
+        orientam a LLM a explicar risco estatístico, comunicar incerteza, evitar diagnóstico, preservar privacidade e
+        recomendar validação profissional.
+      </p>
+      <p style="margin-top: 12px;">
+        A qualidade das respostas foi avaliada por critérios de segurança e consistência: ausência de diagnóstico
+        definitivo, ausência de prescrição clínica, aderência às métricas fornecidas, linguagem cautelosa, preservação
+        de anonimato e coerência entre explicação individual e interpretação agregada.
+      </p>
+    </section>
+
+    <section>
+      <h2>Análise de Equidade</h2>
+      <p>
+        A equidade foi considerada como requisito de avaliação, pois modelos aplicados a triagem em saúde podem apresentar
+        desempenhos diferentes entre grupos demográficos. As variáveis disponíveis no fluxo, como idade, sexo informado,
+        raça/cor e localização, permitem estruturar auditorias por subgrupos.
+      </p>
+      <p style="margin-top: 12px;">
+        Nesta versão do trabalho, a análise quantitativa completa de desempenho por subgrupo ainda não foi consolidada em
+        tabela final. Portanto, a conclusão não afirma equivalência de desempenho entre grupos. A recomendação técnica é
+        calcular, antes de qualquer uso real, recall, especificidade, precision, F1, taxa de falsos positivos e taxa de
+        falsos negativos por faixas etárias, raça/cor, município e demais recortes demográficos disponíveis.
+      </p>
+      <p style="margin-top: 12px;">
+        Um ponto de atenção já identificado é que categorias como raça/cor ignorada ou sem informação não devem ser
+        interpretadas como característica demográfica informativa. A ausência ou baixa qualidade de preenchimento pode
+        refletir desigualdade de registro e precisa ser tratada como risco de viés.
+      </p>
+      <p style="margin-top: 12px;">
+        No primeiro Tech Challenge, foi realizada uma tentativa de agrupamento para obtenção de features adicionais.
+        Contudo, entre as informações pessoais disponíveis, a única que influenciou de maneira consistente a formação
+        de agrupamentos foi a idade. Esse resultado reforça a necessidade de cautela na interpretação de variáveis
+        demográficas e indica que a idade deve ser auditada com atenção em futuras análises de equidade.
+      </p>
+    </section>
+
+    <section>
+      <h2>Desafios e Soluções Implementadas</h2>
+      <ul class="list">
+        <li><strong>Desbalanceamento da classe positiva:</strong> foram priorizadas métricas como recall, F1 e balanced accuracy, além do uso de `class_weight` e função de fitness orientada à classe positiva.</li>
+        <li><strong>Risco de leakage:</strong> colunas de laudo, resultado, BI-RADS, recomendações e achados finais foram isoladas para não compor as features de entrada dos modelos.</li>
+        <li><strong>Custo computacional dos modelos:</strong> foram utilizadas amostragens estratificadas, validação cruzada controlada e experimentos de Algoritmo Genético com populações e gerações definidas.</li>
+        <li><strong>Interpretação de resultados em saúde:</strong> a integração com LLMs foi limitada a uma camada explicativa, com prompts de segurança e auditoria das respostas.</li>
+        <li><strong>Qualidade e rastreabilidade dos dados:</strong> o fluxo preservou bases intermediárias, arquivos Parquet e artefatos de validação para permitir reexecução e revisão do processo.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Considerações Éticas</h2>
+      <div class="callout warning">
+        <p>
+          O projeto trata um problema sensível de saúde pública e, portanto, deve ser avaliado sob os princípios de
+          privacidade, mitigação de vieses, transparência, supervisão humana e responsabilidade social.
+        </p>
+      </div>
+      <ul class="list" style="margin-top: 18px;">
+        <li><strong>Privacidade:</strong> a etapa com LLMs utiliza payloads sem identificação pessoal e não deve enviar dados nominativos ou identificadores sensíveis a serviços externos.</li>
+        <li><strong>Impacto social:</strong> falsos negativos podem atrasar investigação clínica, enquanto falsos positivos podem gerar ansiedade, exames adicionais e pressão sobre o sistema de saúde.</li>
+        <li><strong>Transparência:</strong> métricas, limiares, matriz de confusão, prompts e respostas da LLM devem permanecer documentados para revisão técnica.</li>
+        <li><strong>Supervisão humana:</strong> nenhum resultado do modelo ou da LLM deve ser utilizado como diagnóstico ou decisão clínica automatizada.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <div class="callout">
+        <p>
+          O Algoritmo Genético cumpriu o objetivo do trabalho ao implementar seleção, cruzamento, mutação, elitismo,
+          função de fitness e três experimentos por modelo. A fitness adotada, <strong>0,7 * F1 + 0,3 * recall</strong>,
+          foi adequada ao contexto, pois direcionou a busca para a classe positiva, que é rara.
+        </p>
+      </div>
+
+      <p style="margin-top: 18px;">
+        Na comparação final, SVM e Regressão Logística elevaram substancialmente o recall, indicando maior capacidade de
+        capturar casos positivos. Entretanto, essa melhora foi acompanhada por queda em precision, F1, balanced accuracy
+        e accuracy, o que sugere maior volume de falsos positivos.
+      </p>
+
+      <p style="margin-top: 12px;">
+        A Random Forest otimizada apresentou o resultado mais equilibrado: aumentou o recall em relação ao baseline,
+        melhorou levemente a balanced accuracy e manteve a menor perda de F1 entre os modelos avaliados. Portanto,
+        considerando desempenho e viabilidade operacional, ela é a alternativa mais consistente entre os modelos otimizados.
+      </p>
+
+      <p style="margin-top: 12px;">
+        A integração com LLMs complementou o trabalho ao oferecer uma camada formal de interpretação dos resultados,
+        com mecanismos de segurança textual e auditoria. Essa etapa fortalece a comunicação dos achados, mas não altera
+        a natureza estatística do projeto nem autoriza uso clínico sem validações adicionais.
+      </p>
+    </section>
+
+    <section>
+      <h2>Recomendação Final</h2>
+      <div class="callout warning">
+        <p>
+          O modelo deve ser tratado exclusivamente como apoio à triagem e nunca como diagnóstico clínico. Antes de qualquer
+          uso real, é necessário validar o desempenho em dados futuros, revisar erros por subgrupos, calibrar limiares e
+          submeter a interpretação a profissionais responsáveis.
+        </p>
+      </div>
+      <ul class="list" style="margin-top: 18px;">
+        <li>Utilizar a Random Forest otimizada como principal candidata para continuidade do estudo.</li>
+        <li>Manter SVM e Regressão Logística como alternativas quando a prioridade for maximizar recall.</li>
+        <li>Evitar conclusões baseadas apenas em accuracy, pois a classe positiva representa pequena fração da base.</li>
+        <li>Registrar limiares, matriz de confusão e impacto operacional antes de qualquer aplicação fora do ambiente acadêmico.</li>
+        <li>Utilizar a integração com LLMs apenas como camada explicativa, sempre com validação, auditoria e restrições contra interpretação diagnóstica.</li>
+      </ul>
+    </section>
+
+  </main>
+</body>
+</html>

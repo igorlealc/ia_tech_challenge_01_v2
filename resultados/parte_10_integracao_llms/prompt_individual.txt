@@ -1,0 +1,49 @@
+Contexto:
+O modelo abaixo foi treinado para triagem de risco em mamografias do SISCAN.
+A classe positiva indica maior probabilidade estatistica de cancer de mama provavel.
+O modelo nao substitui avaliacao medica.
+
+Payload estruturado, sem identificacao pessoal:
+{
+  "modelo": "Random Forest baseline Parte 5",
+  "classe_prevista": 1,
+  "score_risco": 0.68,
+  "limiar_classificacao": 0.5,
+  "observacao": "Score demonstrativo; substituir pelo score real do modelo escolhido quando a parte de predicao estiver reexecutada.",
+  "metricas_modelo": {
+    "recall": 0.3687,
+    "precision": 0.0815,
+    "f1": 0.1335,
+    "balanced_accuracy": 0.5924
+  },
+  "contexto_registro": {
+    "origem": "bases/teste/x.parquet",
+    "target_real_para_auditoria": 0,
+    "variaveis_relevantes": {
+      "SG_SEXO": "F",
+      "CO_RACA_COR": "01",
+      "TP_RESP_APRES_RISC_ELEV_CANCER": "01",
+      "TP_RESP_ANT_MAMA_EXA_PROF_SAUD": "03",
+      "TP_RESP_FEZ_MAMOGRA_ALGUMA_VEZ": "03",
+      "CO_IND_CLINICA": "02",
+      "TP_MAMOGRAFIA_RASTREAMENT": "01",
+      "CO_TEMPO_MAMO_ANTERIOR_NUM": 0,
+      "CO_IDADE_PACIENTE_NUM": 38,
+      "CO_IDADE_PACIENTE_CAP": 38
+    }
+  }
+}
+
+Tarefa:
+1. Explique em linguagem natural o que a predicao significa.
+2. Destaque apenas fatores estruturados presentes no payload.
+3. Explique a incerteza usando as metricas do modelo.
+4. Sugira uma acao operacional de triagem, sem prescrever diagnostico ou tratamento.
+5. Liste limitacoes do modelo para este caso.
+
+Responda exatamente com estas secoes:
+- Resumo da predicao
+- Fatores observados
+- Interpretacao da incerteza
+- Acao operacional sugerida
+- Limitacoes

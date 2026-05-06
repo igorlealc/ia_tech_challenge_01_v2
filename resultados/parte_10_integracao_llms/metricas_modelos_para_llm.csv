@@ -1,0 +1,4 @@
+modelo,tipo,accuracy,balanced_accuracy,precision,recall,f1,roc_auc
+SVM baseline Parte 4,baseline,0.6811,0.6066,0.0693,0.5251,0.1225,0.6492
+Regressao Logistica baseline Parte 6,baseline,0.6784,0.5924,0.0657,0.4985,0.1161,0.6348
+Random Forest baseline Parte 5,baseline,0.7971,0.5924,0.0815,0.3687,0.1335,0.6248
